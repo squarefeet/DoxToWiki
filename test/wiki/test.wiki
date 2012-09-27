@@ -1,0 +1,96 @@
+= test.js =
+----
+
+
+\\
+----
+\\
+
+= Quick Reference =
+**{{{anotherTest ( html ) }}}**\\
+**{{{escape ( html, obj ) }}}**\\
+{{{decl}}}\\
+
+
+\\
+----
+\\
+
+= Full Reference =
+**{{{escape ( html, obj ) }}}**\\
+Escape the given {{{html}}}.
+== Examples
+
+    utils.escape('<script></script>')
+    // => '&lt;script&gt;&lt;/script&gt;'
+
+=== Params ===
+**{{{html}}}** {String} 
+* string to be escaped
+
+**{{{obj}}}** {Object} {Number} 
+* A fake parameter
+
+=== Returns ===
+{String} 
+* escaped html
+
+=== Source ===
+
+{{{
+#!javascript
+
+exports.escape = function(html){
+  return String(html)
+    .replace(/&(?!\w+;)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+};
+}}}
+
+
+\\
+----
+\\
+
+**{{{anotherTest ( html ) }}}**\\
+Another test
+
+=== Params ===
+**{{{html}}}** {String} 
+* Some HTML to do something with.
+
+=== Returns ===
+{String} 
+* Another string
+
+=== Source ===
+
+{{{
+#!javascript
+
+exports.anotherTest = function(html){
+    // do something...
+};
+}}}
+
+
+\\
+----
+\\
+
+{{{decl}}}\\
+A declaration
+=== Source ===
+
+{{{
+#!javascript
+
+var decl = 'hello';
+}}}
+
+
+\\
+----
+\\
+

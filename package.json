@@ -1,0 +1,9 @@
+{
+    "name": "doxScript",
+    "description": "something",
+    "version": "0.1.0",
+    "dependencies": {
+        "dox": "latest",
+        "async": "latest"
+    }
+}

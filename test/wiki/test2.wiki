@@ -1,0 +1,63 @@
+= test2.js =
+----
+
+
+\\
+----
+\\
+
+= Quick Reference =
+**{{{getAirportCode ( {object} ) }}}**\\
+
+
+\\
+----
+\\
+
+= Full Reference =
+**{{{getAirportCode ( {object} ) }}}**\\
+Returns a valid code name and value for use in the api search
+=== Params ===
+**{{{{object}}}}** {airport} 
+* an airport object, probably from this cache
+
+=== Returns ===
+{object} 
+* { 
+
+=== Source ===
+
+{{{
+#!javascript
+
+getAirportCode: function(airport) {
+		var codes = ['iataCode', 'icaoCode', 'faaCode'],
+			i,l;
+
+		for (i=0, l=codes.length; i<l; i++) {
+			if (typeof airport[codes[i]] !== 'undefined') {
+				return {
+					type: codes[i],
+					value: airport[codes[i]]
+				};
+			}
+		}
+		return null;
+
+	},
+
+	generateKey: function(airport){
+		var key = '';
+			key += airport.name + '_' + airport.iataCode + '_' + airport.icaoCode+'_'+airport.faaCode;
+		return key;
+	}
+
+
+};
+}}}
+
+
+\\
+----
+\\
+
